@@ -26,7 +26,7 @@
                 <option value="other">Autre</option>
             </select>
             <br />
-            <button id="passbtn">S'enregistrer</button>
+            <button id="registerbtn" disabled>S'enregistrer</button>
         </div>
     </main>
 
@@ -35,11 +35,8 @@
     </footer>
 
     <script type="text/javascript">
-        document.getElementById("passbtn").onclick = function() {
-            location.href = "/register?password=" + document.getElementById('password').value;
-        };
-
         document.getElementById("name").addEventListener("input", function() {
+            document.querySelector('#registerbtn').disabled = true;
             var name = this.value.trim();
             if (name.length > 0) {
                 fetch("/search?lastName=" + name)
@@ -56,6 +53,7 @@
                             var suggestionItems = document.querySelectorAll('.suggestion');
                             suggestionItems.forEach(item => {
                                 item.addEventListener('click', function() {
+                                    document.querySelector('#registerbtn').disabled = false;
                                     var nom = this.getAttribute('data-nom');
                                     var prenom = this.getAttribute('data-prenom');
                                     var classe = this.getAttribute('data-classe');

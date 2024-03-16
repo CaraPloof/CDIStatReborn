@@ -8,7 +8,7 @@
     body {
         padding: 0;
         margin: 0;
-        background-color: black;
+        background-color: #f2f2f2;
         font-family: 'Work Sans', sans-serif;
     }
 
@@ -27,16 +27,20 @@
     }
 
     .topnav {
-        margin-top: 10px;
         overflow: hidden;
         text-align: center;
         font-family: 'Work Sans', sans-serif;
         animation: fade 1s alternate;
+        background-color: rgba(0, 0, 0, 0.123);
+        box-shadow:
+            inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+            inset -2px -2px 3px rgba(0, 0, 0, 0.6);
     }
 
     .topTitle {
+        margin-top: 10px;
         float: center;
-        color: #ddd;
+        color: #333;
         font-size: 110%;
     }
 
@@ -69,11 +73,12 @@
 
     .panel {
         position: absolute;
-        display: flow;
+        display: block;
+        min-width: 300px;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-        color: #ddd;
+        color: #333;
         padding: 5px;
         text-align: center;
         animation: fade 2s alternate;
@@ -84,9 +89,11 @@
 
     .panel input {
         margin-top: 2px;
-        background-color: transparent;
-        color: white;
+        background-color: white;
+        color: black;
         border-radius: 5px;
+        border: 1px solid #ccc; /* Bordure de l'input plus claire */
+        padding: 8px; /* Espacement interne de l'input */
     }
 
     .panel button {
@@ -98,7 +105,7 @@
         color: #fff;
         text-shadow: 1px 1px 1px #000;
         border-radius: 5px;
-        background-color: transparent;
+        background-color: #007bff;
         box-shadow:
             inset 2px 2px 3px rgba(255, 255, 255, 0.6),
             inset -2px -2px 3px rgba(0, 0, 0, 0.6);
@@ -106,9 +113,17 @@
         width: 100%;
     }
 
+    .panel button:disabled {
+        background-color: grey;
+    }
+
+    .panel button:disabled:hover {
+        box-shadow: none; 
+    }
+
     .panel button:hover {
         box-shadow:
-            inset 4px 4px 6px rgba(255, 0, 255, 0.6),
+            inset 4px 4px 6px rgba(0, 17, 255, 0.37),
             inset -2px -2px 3px rgba(0, 0, 0, 0.6); 
     }
 
@@ -117,6 +132,56 @@
             inset 4px 4px 6px rgba(255, 255, 100, 0.5),
             inset -2px -2px 3px rgba(0, 0, 0, 0.4);
         border: 0;
+    }
+
+    select {
+        appearance: none;
+        /*  safari  */
+        -webkit-appearance: none;
+        width: 100%;
+        margin-bottom: 3px;
+        box-shadow:
+            inset -2px -2px 3px rgba(0, 0, 0, 0.6); 
+        font-size: 1.15rem;
+        text-align: center;
+        padding: 2px;
+        cursor: pointer;
+        background-color: #fff;
+        border: 1px solid #caced1;
+        border-radius: 0.25rem;
+    }
+
+    select::before,
+    select::after {
+        --size: 0.3rem;
+        content: "";
+        position: absolute;
+        right: 1rem;
+        pointer-events: none;
+    }
+
+    select::before {
+        border-left: var(--size) solid transparent;
+        border-right: var(--size) solid transparent;
+        border-bottom: var(--size) solid black;
+        top: 40%;
+    }
+
+    select::after {
+        border-left: var(--size) solid transparent;
+        border-right: var(--size) solid transparent;
+        border-top: var(--size) solid black;
+        top: 55%;
+    }
+
+    .suggestion {
+        background-color: white;
+        cursor: pointer;
+        margin-top: 2px;
+        font-weight: bold;
+        border: solid;
+        border-width: 1px;
+        border-radius: 1px;
     }
 
     .shopItem {
