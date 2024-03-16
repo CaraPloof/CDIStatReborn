@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="panel">
+            <input id="password" type="password" placeholder="Mot de passe">
+            <br />
+            <button id="passbtn">Entrer</button>
+        </div>
+    </main>
+    <script type="text/javascript">
+        function sha256(inputString) {
+            const buffer = new TextEncoder("utf-8").encode(inputString);
+            return crypto.subtle.digest("SHA-256", buffer).then(hash => {
+                return Array.prototype.map.call(new Uint8Array(hash), x => ('00' + x.toString(16)).slice(-2)).join('');
+            });
+        }
+        document.getElementById("passbtn").onclick = function() {
+            sha256(document.getElementById('password').value).then(hash => {
+                location.href = "/register?password=" + hash;
+            });
+        };
+    </script>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>

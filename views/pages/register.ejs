@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="panel">
+            <input id="name" type="text" placeholder="Your name">
+            <br />
+            <select class="select" name="activities" id="activities">
+                <option value="">Chosis une activité</option>
+                <option value="schoolwork">Travail Scolaire</option>
+                <option value="reading">Lecture</option>
+                <option value="games">Jeux de société</option>
+                <option value="media">Atelier Médias</option>
+                <option value="personal">Travail Personnel</option>
+                <option value="other">Autre</option>
+            </select>
+            <br />
+            <button id="passbtn">S'enregistrer</button>
+        </div>
+    </main>
+    <script type="text/javascript">
+        document.getElementById("passbtn").onclick = function() {
+            location.href = "/register?password=" + document.getElementById('password').value;
+        };
+    </script>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>

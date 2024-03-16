@@ -1,0 +1,214 @@
+<title>CDIStat Reborn</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+
+    body {
+        padding: 0;
+        margin: 0;
+        background-color: black;
+        font-family: 'Work Sans', sans-serif;
+    }
+
+    @keyframes fade {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    h1 {
+        padding: 0;
+        margin: 0;
+    }
+
+    .topnav {
+        margin-top: 10px;
+        overflow: hidden;
+        text-align: center;
+        font-family: 'Work Sans', sans-serif;
+        animation: fade 1s alternate;
+    }
+
+    .topTitle {
+        float: center;
+        color: #ddd;
+        font-size: 110%;
+    }
+
+    .topSubtitle {
+        font-size: 80%;
+    }
+
+    #topBtns {
+        padding-right: 10%;
+    }
+
+    .topBtn {
+        animation: fade 3s alternate;
+        top: 50%;
+        transform: translate(0%, 50%);
+        padding: 14px 16px;
+        float: right;
+        color: #ddd;
+        text-align: center;
+        font-size: 17px;
+    }
+
+    .topBtn:hover {
+        color: grey;
+    }
+
+    .topnav a {
+        text-decoration: none;
+    }
+
+    .panel {
+        position: absolute;
+        display: flow;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: #ddd;
+        padding: 5px;
+        text-align: center;
+        animation: fade 2s alternate;
+        border-style: solid;
+        border-radius: 5px;
+        border-width: 2px;
+    }
+
+    .panel input {
+        margin-top: 2px;
+        background-color: transparent;
+        color: white;
+        border-radius: 5px;
+    }
+
+    .panel button {
+        border: 0;
+        line-height: 2.5;
+        padding: 0 20px;
+        font-size: 1rem;
+        text-align: center;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+        border-radius: 5px;
+        background-color: transparent;
+        box-shadow:
+            inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+            inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+        margin-top: 2px;
+        width: 100%;
+    }
+
+    .panel button:hover {
+        box-shadow:
+            inset 4px 4px 6px rgba(255, 0, 255, 0.6),
+            inset -2px -2px 3px rgba(0, 0, 0, 0.6); 
+    }
+
+    .panel button:active {
+        box-shadow:
+            inset 4px 4px 6px rgba(255, 255, 100, 0.5),
+            inset -2px -2px 3px rgba(0, 0, 0, 0.4);
+        border: 0;
+    }
+
+    .shopItem {
+        display: inline-block;
+        border-style: solid;
+        border-radius: 5px;
+        min-width: 300px;
+        min-height: 250px;
+        padding: 15px;
+    }
+
+    .itemBtn {
+        background-color: green;
+        padding: 2px;
+        border-style: solid;
+        border-color: grey;
+        margin: 2px;
+    }
+
+    .itemBtn:hover {
+        background-color: grey;
+        cursor: pointer;
+        color: white;
+    }
+
+    .itemBtn:active  {
+        background-color: darkgrey;
+    }
+
+    img {
+        width: 300px;
+        height: 250px;
+    }
+
+    footer {
+        animation: fade 1s alternate;
+        color: white;
+        display: block;
+        background-color: black;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        width: 100%;
+        border-top: 1px solid white;
+    }
+
+    footer p {
+        text-align: center;
+    }
+
+    /* Styles pour les écrans mobiles */
+    @media screen and (max-width: 768px) {
+        .topnav {
+            text-align: center;
+        }
+
+        .topTitle {
+            float: none;
+            margin-left: 0;
+            font-size: 150%; /* Ajustez la taille de la police pour mobile */
+        }
+
+        .topSubtitle {
+            font-size: 100%; /* Ajustez la taille de la police pour mobile */
+        }
+
+        #topBtns {
+            padding-right: 0;
+        }
+
+        .topBtn {
+            display: block; /* Afficher chaque bouton sur une ligne séparée */
+            margin: 10px auto;
+            font-size: 18px; /* Ajustez la taille de la police pour mobile */
+        }
+
+        .shop, .container {
+            font-size: 90%; /* Ajustez la taille de la police pour mobile */
+        }
+
+        .shopItem {
+            max-width: 100%; /* Ajustez la largeur maximale pour mobile */
+            min-height: 150px; /* Ajustez la hauteur minimale pour mobile */
+            padding: 10px; /* Ajustez le rembourrage pour mobile */
+            margin: 10px 0; /* Ajustez la marge pour mobile */
+        }
+
+        img {
+            max-width: 100%; /* Ajustez la largeur des images pour mobile */
+            height: auto; /* Ajustez la hauteur des images pour mobile */
+        }
+    }
+</style>
