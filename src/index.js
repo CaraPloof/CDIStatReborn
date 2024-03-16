@@ -5,10 +5,12 @@ const url = require('url');
 const querystring = require('querystring');
 const csvParser = require('csv-parser');
 const crypto = require('crypto');
+const config = require("../config.json");
 
 var app = express();
+var port = config.port || 8080;
 
-var pass = "M0tDeP4sseC0ste3u";
+var webpass = config.webPassword;
 var students = [];
 
 app.use(bodyParser.urlencoded({
@@ -33,12 +35,12 @@ app.get('/', function(req, res) {
 
 app.get('/register', function(req, res) {
     let password = req.query.password;
-    if (password == hashString(pass)) res.render('pages/register');
+    if (password == hashString(webpass)) res.render('pages/register');
     else res.render('pages/index');
 });
 
-app.listen(8080);
-console.log('Server is listening on port 8080');
+app.listen(port);
+console.log(`Server is listening on port ${port}.`);
 
 function hashString(inputString) {
     const hash = crypto.createHash('sha256');
