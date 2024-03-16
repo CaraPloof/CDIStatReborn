@@ -14,9 +14,10 @@
     <main>
         <div class="panel">
             <input id="name" type="text" placeholder="Your name">
+            <div id="suggestions"></div>
             <br />
             <select class="select" name="activities" id="activities">
-                <option value="">Chosis une activité</option>
+                <option value="">Choisis une activité</option>
                 <option value="schoolwork">Travail Scolaire</option>
                 <option value="reading">Lecture</option>
                 <option value="games">Jeux de société</option>
@@ -28,14 +29,52 @@
             <button id="passbtn">S'enregistrer</button>
         </div>
     </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
     <script type="text/javascript">
         document.getElementById("passbtn").onclick = function() {
             location.href = "/register?password=" + document.getElementById('password').value;
         };
+
+        document.getElementById("name").addEventListener("input", function() {
+            var name = this.value.trim();
+            if (name.length > 0) {
+                fetch("/search?lastName=" + name)
+                    .then(response => response.json())
+                    .then(data => {
+                        var suggestionsDiv = document.getElementById("suggestions");
+                        suggestionsDiv.innerHTML = "";
+                        if (data.length > 0) {
+                            data.forEach(student => {
+                                suggestionsDiv.innerHTML += "<div class='suggestion' data-nom='" + student.Nom + "' data-prenom='" + student.Prenom + "' data-classe='" + student.Classe + "'>" + student.Nom + " " + student.Prenom + " - Classe: " + student.Classe + "</div>";
+                            });
+
+                            // Ajouter un événement de clic à chaque suggestion
+                            var suggestionItems = document.querySelectorAll('.suggestion');
+                            suggestionItems.forEach(item => {
+                                item.addEventListener('click', function() {
+                                    var nom = this.getAttribute('data-nom');
+                                    var prenom = this.getAttribute('data-prenom');
+                                    var classe = this.getAttribute('data-classe');
+                                    document.getElementById('name').value = nom + " " + prenom + " " + classe;
+                                    suggestionsDiv.innerHTML = "";
+                                });
+                            });
+                        } else {
+                            suggestionsDiv.innerHTML = "<div>Aucun résultat trouvé.</div>";
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erreur lors de la récupération des suggestions:', error);
+                    });
+            } else {
+                document.getElementById("suggestions").innerHTML = "";
+            }
+        });
     </script>
-    <footer>
-        <%- include('../partials/footer'); %>
-    </footer>
 
 </body>
 

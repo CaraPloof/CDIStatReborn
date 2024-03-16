@@ -39,6 +39,12 @@ app.get('/register', function(req, res) {
     else res.render('pages/index');
 });
 
+app.get('/search', function(req, res) {
+    const lastName = req.query.lastName.toLowerCase();
+    const results = students.filter(student => student.Nom.toLowerCase().startsWith(lastName));
+    res.json(results);
+});
+
 app.listen(port);
 console.log(`Server is listening on port ${port}.`);
 

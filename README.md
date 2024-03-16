@@ -22,6 +22,7 @@ CDIStat Reborn est une application de gestion de statistiques conçue spécifiqu
 Le fichier `config.json` contient les paramètres de configuration suivants :
 - `port`: Le port sur lequel le serveur de l'application sera lancé.
 - `adminPassword`: Le mot de passe requis pour accéder aux fonctionnalités d'administration de l'application.
+- `webPassword`: Le mot de passe requis pour permettre aux élèves de s'enregistrer.
 
 ### Technologies utilisées :
 - Node.js
