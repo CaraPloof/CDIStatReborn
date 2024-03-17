@@ -29,7 +29,7 @@ Le fichier `config.json` contient les paramètres de configuration suivants :
 - Express.js
 - EJS (Embedded JavaScript) pour les vues
 - CSV Parser pour la manipulation des fichiers CSV
-- Un base de donnée no-sql basé sur un système d'indexation de json réalisé par [DIDELOT Tim](https://github.com/CaraPloof) pour [Fossnote](https://github.com/CaraPloof/fossnote)
+- Une base de donnée no-sql basé sur un système d'indexation de json réalisé par [DIDELOT Tim](https://github.com/CaraPloof) pour [Fossnote](https://github.com/CaraPloof/fossnote)
 
 ### Contributeurs :
 - [DIDELOT Tim](https://github.com/CaraPloof)
