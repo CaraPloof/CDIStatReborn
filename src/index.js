@@ -46,6 +46,10 @@ app.get('/search', function(req, res) {
     res.json(results);
 });
 
+app.get('/search', function(req, res) {
+    res.json(results);
+});
+
 app.listen(port);
 console.log(`Server is listening on port ${port}.`);
 
