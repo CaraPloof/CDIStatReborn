@@ -6,6 +6,7 @@ const querystring = require('querystring');
 const csvParser = require('csv-parser');
 const crypto = require('crypto');
 const config = require("../config.json");
+const cdi_timetable = require("./timetable")
 
 var app = express();
 var port = config.port || 8080;

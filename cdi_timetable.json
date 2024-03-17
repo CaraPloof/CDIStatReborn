@@ -1,0 +1,99 @@
+{
+    "cdi_horaires": {
+        "lundi": {
+            "plages_horaires": [
+                {
+                    "ouverture": "09:05",
+                    "fermeture": "10:00",
+                    "duree": "0:55"
+                },
+                {
+                    "ouverture": "10:15",
+                    "fermeture": "12:05",
+                    "duree": "1:50"
+                },
+                {
+                    "ouverture": "13:00",
+                    "fermeture": "14:50",
+                    "duree": "1:50"
+                },
+                {
+                    "ouverture": "15:05",
+                    "fermeture": "17:50",
+                    "duree": "2:45"
+                }
+            ]
+        },
+        "mardi": {
+            "plages_horaires": [
+                {
+                    "ouverture": "08:00",
+                    "fermeture": "10:00",
+                    "duree": "2:00"
+                },
+                {
+                    "ouverture": "10:15",
+                    "fermeture": "12:05",
+                    "duree": "1:50"
+                },
+                {
+                    "ouverture": "13:00",
+                    "fermeture": "14:50",
+                    "duree": "1:50"
+                },
+                {
+                    "ouverture": "15:05",
+                    "fermeture": "17:50",
+                    "duree": "2:45"
+                }
+            ]
+        },
+        "mercredi": {
+            "plages_horaires": []
+        },
+        "jeudi": {
+            "plages_horaires": [
+                {
+                    "ouverture": "08:00",
+                    "fermeture": "10:00",
+                    "duree": "2:00"
+                },
+                {
+                    "ouverture": "10:15",
+                    "fermeture": "12:05",
+                    "duree": "1:50"
+                },
+                {
+                    "ouverture": "13:00",
+                    "fermeture": "14:50",
+                    "duree": "1:50"
+                },
+                {
+                    "ouverture": "15:05",
+                    "fermeture": "17:50",
+                    "duree": "2:45"
+                }
+            ]
+        },
+        "vendredi": {
+            "plages_horaires": [
+                {
+                    "ouverture": "09:05",
+                    "fermeture": "10:00",
+                    "duree": "0:55"
+                },
+                {
+                    "ouverture": "10:15",
+                    "fermeture": "12:05",
+                    "duree": "1:50"
+                }
+            ]
+        },
+        "samedi": {
+            "plages_horaires": []
+        },
+        "dimanche": {
+            "plages_horaires": []
+        }
+    }
+}
