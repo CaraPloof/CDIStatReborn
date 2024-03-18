@@ -17,6 +17,10 @@
                 {
                     "ouverture": "15:05",
                     "fermeture": "17:50"
+                },
+                {
+                    "ouverture": "19:05",
+                    "fermeture": "20:50"
                 }
             ]
         },
@@ -79,12 +83,7 @@
             "plages_horaires": []
         },
         "dimanche": {
-            "plages_horaires": [
-                {
-                    "ouverture": "17:00",
-                    "fermeture": "19:00"
-                }
-            ]
+            "plages_horaires": []
         }
     }
 }

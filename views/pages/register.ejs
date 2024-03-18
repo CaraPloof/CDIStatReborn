@@ -12,7 +12,8 @@
     </header>
 
     <main>
-        <div class="panel">
+        <div id="currentTimeSlots"></div>
+        <div class="panel" id="registrationPanel">
             <input id="name" type="text" placeholder="Your name">
             <div id="suggestions"></div>
             <br />
@@ -35,6 +36,20 @@
     </footer>
 
     <script type="text/javascript">
+        fetch("/timeSlots")
+            .then(response => response.json())
+            .then(data => {
+                if (!data) {
+                    document.querySelector('#registrationPanel').style.display = "none";
+                } else {
+                    var currentTimeSlots = document.getElementById("currentTimeSlots");
+                    currentTimeSlots.innerHTML = `<p>Vous pouvez vous inscrire dans la plage horaire : ${data.ouverture} - ${data.fermeture}<p/>`;
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération de la place horaire:', error);
+            });
+
         document.getElementById("name").addEventListener("input", function() {
             document.querySelector('#registerbtn').disabled = true;
             var name = this.value.trim();

@@ -6,7 +6,7 @@ const querystring = require('querystring');
 const csvParser = require('csv-parser');
 const crypto = require('crypto');
 const config = require("../config.json");
-const cdi_timetable = require("./timetable")
+const cdi_timetable = require("./timetable");
 
 var app = express();
 var port = config.port || 8080;
@@ -46,8 +46,8 @@ app.get('/search', function(req, res) {
     res.json(results);
 });
 
-app.get('/search', function(req, res) {
-    res.json(results);
+app.get('/timeSlots', function(req, res) {
+    res.json(cdi_timetable.getCurrentTimeRange());
 });
 
 app.listen(port);

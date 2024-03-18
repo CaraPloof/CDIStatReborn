@@ -55,7 +55,7 @@ function availableHours(currentTimeRange) {
 }
 
 // Exécution
-
+/*
 const currentTimeRange = getCurrentTimeRange();
 if (currentTimeRange) {
     const availableTime = availableHours(currentTimeRange);
@@ -67,6 +67,7 @@ if (currentTimeRange) {
 } else {
     console.log("Vous n'êtes dans aucune plage horaire pour aujourd'hui.");
 }
+*/
 
 module.exports = {
     getCurrentTimeRange,
