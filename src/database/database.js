@@ -58,7 +58,6 @@ function addToTable(tableName, record) {
         return;
     }
     record.id = id;
-
     database[tableName].push(record);
     saveDatabase(database);
 }
@@ -104,11 +103,45 @@ function editElementInTable(tableName, elementId, newData) {
     saveDatabase(database);
 }
 
+// Fonction pour éditer un élément dans une table en utilisant un attribut comme référence
+function editElementByAttribute(tableName, attributeKey, attributeValue, newData) {
+    const database = loadOrCreateDatabase();
+    if (!database[tableName]) {
+        console.error(`La table '${tableName}' n'existe pas.`);
+        return;
+    }
+
+    const record = database[tableName].find(record => record[attributeKey] === attributeValue);
+    if (!record) {
+        console.error(`Aucun élément trouvé avec '${attributeKey}' égal à '${attributeValue}' dans la table '${tableName}'.`);
+        return;
+    }
+
+    // Mettre à jour les données de l'élément avec les nouvelles données
+    Object.assign(record, newData);
+    saveDatabase(database);
+}
+
+
+// Fonction pour vérifier si la base de données existe
+function databaseExists() {
+    return fs.existsSync("database.json");
+}
+
+// Fonction pour vérifier si une table existe dans la base de données
+function tableExists(tableName) {
+    const database = loadOrCreateDatabase();
+    return database.hasOwnProperty(tableName);
+}
+
 module.exports = {
     createTable,
     addToTable,
     searchInTable,
     loadOrCreateDatabase,
     saveDatabase,
-    editElementInTable
+    editElementInTable,
+    editElementByAttribute,
+    databaseExists,
+    tableExists
 };

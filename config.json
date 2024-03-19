@@ -1,5 +1,22 @@
 {
     "port": 8080,
     "adminPassword": "1B0nM0tD3P4ss",
-    "webPassword": "M0tDeP4sseC0ste3u"
+    "webPassword": "M0tDeP4sseC0ste3u",
+    "room": 60,
+    "overbooking": true,
+    "overroom": 10,
+    "unregistering": true,
+    "timeMin": 2,
+    "registerForMultipleHours": true,
+    "reservation": false,
+    "schoolYear": {
+        "metropole": {
+            "startMonth": "Août",
+            "endMonth": "Juillet"
+        },
+        "hemisphereSud": {
+            "startMonth": "Février",
+            "endMonth": "Janvier"
+        }
+    }
 }
