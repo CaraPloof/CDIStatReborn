@@ -134,6 +134,18 @@ function tableExists(tableName) {
     return database.hasOwnProperty(tableName);
 }
 
+// Fonction pour rechercher des enregistrements dans une table en fonction d'un préfixe sur un attribut
+function searchByPrefix(tableName, attribute, prefix) {
+    const database = loadOrCreateDatabase();
+    if (database[tableName]) {
+        const results = database[tableName].filter(record => record[attribute].toLowerCase().startsWith(prefix.toLowerCase()));
+        return results;
+    } else {
+        console.error(`La table '${tableName}' n'existe pas.`);
+        return [];
+    }
+}
+
 module.exports = {
     createTable,
     addToTable,
@@ -143,5 +155,6 @@ module.exports = {
     editElementInTable,
     editElementByAttribute,
     databaseExists,
-    tableExists
+    tableExists,
+    searchByPrefix
 };

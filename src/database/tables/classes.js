@@ -23,11 +23,17 @@ async function createClass(name) {
 }
 
 async function getClass(name) {
-    if (database.searchInTable('classes', {name: name}).length > 0) return database.searchInTable('classes', {name: name})[0];
+    if (await database.searchInTable('classes', {name: name}).length > 0) return await database.searchInTable('classes', {name: name})[0];
+    else return null;
+}
+
+async function getClassById(id) {
+    if (await database.searchInTable('classes', {id: id}).length > 0) return await database.searchInTable('classes', {id: id})[0];
     else return null;
 }
 
 module.exports = {
     createClass,
-    getClass
+    getClass,
+    getClassById
 };

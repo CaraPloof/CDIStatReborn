@@ -17,6 +17,7 @@ var webpass = config.webPassword;
 
 const checksTb = require("./database/tables/checks");
 const classesTb = require("./database/tables/classes");
+const studentsTb = require("./database/tables/students");
 
 var students = [];
 var classes = [];
@@ -44,6 +45,9 @@ app.set('view engine', 'ejs');
                 }
                 if (!await checksTb.getCheck('students.csv')) checksTb.addCheck('students.csv', hashFile('students.csv'));
                 else await checksTb.editCheck("students.csv", hashFile('students.csv'));
+                for (student of students) {
+                    await studentsTb.addStudent(student.Prenom, student.Nom, student.Classe);
+                }
                 console.log(students.length + ' students were discovered.');
             });
     }
@@ -59,9 +63,18 @@ app.get('/register', function(req, res) {
     else res.render('pages/index');
 });
 
-app.get('/search', function(req, res) {
-    const lastName = req.query.lastName.toLowerCase();
-    const results = students.filter(student => student.Nom.toLowerCase().startsWith(lastName));
+app.get('/search', async function(req, res) {
+    const prefix = req.query.lastName.toLowerCase();
+    const search = await studentsTb.getStudentsByLastNamePrefix(prefix);
+    const results = [];
+    for (i = 0; i < search.length; i++) {
+        const _class = await classesTb.getClassById(search[i].class);
+        results.push({
+            Nom: search[i].lastName,
+            Prenom: search[i].firstName,
+            Classe: _class.name
+        });
+    }
     res.json(results);
 });
 
