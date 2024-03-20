@@ -9,6 +9,7 @@
     "timeMin": 2,
     "registerForMultipleHours": true,
     "reservation": false,
+    "allowSundays": true,
     "schoolYear": {
         "metropole": {
             "startMonth": "Août",

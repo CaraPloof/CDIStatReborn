@@ -14,7 +14,9 @@ var app = express();
 var port = config.port || 8080;
 
 var webpass = config.webPassword;
+var adminpass = config.adminPassword;
 
+const database = require("./database/database");
 const checksTb = require("./database/tables/checks");
 const classesTb = require("./database/tables/classes");
 const studentsTb = require("./database/tables/students");
@@ -22,11 +24,15 @@ const studentsTb = require("./database/tables/students");
 var students = [];
 var classes = [];
 
-
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+
 app.use(bodyParser.json());
+
+if (!database.databaseExists()) {
+    
+}
 
 app.set('view engine', 'ejs');
 (async () => {
