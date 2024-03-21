@@ -40,7 +40,7 @@
             .then(response => response.json())
             .then(data => {
                 if (!data) {
-                    document.querySelector('#registrationPanel').style.display = "none";
+                    // document.querySelector('#registrationPanel').style.display = "none";
                 } else {
                     var currentTimeSlots = document.getElementById("currentTimeSlots");
                     currentTimeSlots.innerHTML = `<p>Vous pouvez vous inscrire dans la plage horaire : ${data.ouverture} - ${data.fermeture}<p/>`;
