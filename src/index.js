@@ -125,12 +125,17 @@ app.get('/config', async function(req, res) {
             res.redirect('/install');
             break;
         case 4: // Configurer les horraires du CDI
-            const stateTimeSlots = req.query.state; // 0: Modification, 1: Conclusion
+            const stateTimeSlots = req.query.state; // 0: Ajout, 0: Retrait, 1: Conclusion
             switch (stateTimeSlots) {
                 case 0:
-                    const timeSlots = req.query.timeSlots;
+                    const timeSlotsA = req.query.timeSlots;
+                    res.send("");
                     break;
                 case 1:
+                    const timeSlotsR = req.query.timeSlots;
+                    res.send("");
+                    break;
+                case 2:
                     installationStep++;
                     res.redirect('/install');
                     break;

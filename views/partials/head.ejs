@@ -244,21 +244,24 @@
     }
 
     .calendar {
+        position: relative;
         display: flex;
         flex-direction: column;
         border: 1px solid #ccc;
         border-radius: 5px;
         padding: 10px;
-        width: 150%;
-        max-width: 600px;
+        width: auto;
+        max-width: 800px;
         margin: 0 auto;
     }
 
     .weekdays {
+        width: auto;
         display: flex;
     }
 
     .day {
+        width: auto;
         flex: 1;
         padding: 10px;
         text-align: center;
@@ -266,10 +269,13 @@
     }
 
     .days {
+        width: auto;
         display: flex;
     }
 
     .hour {
+        width: auto;
+        cursor: pointer;
         padding: 5px;
         border: 1px solid #ccc;
         margin: 2px;

@@ -1,85 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <%- include('../../partials/head'); %>
-</head>
-
-<body class="container">
-
-    <header>
-        <%- include('../../partials/header'); %>
-    </header>
-
-    <main>
-        <div class="panel">
-            <h2>Entrez les plages horaires pour chaque jour de la semaine :</h2>
-            <div class="calendar">
-                <div class="weekdays">
-                  <div class="day">Lundi</div>
-                  <div class="day">Mardi</div>
-                  <div class="day">Mercredi</div>
-                  <div class="day">Jeudi</div>
-                  <div class="day">Vendredi</div>
-                  <div class="day">Samedi</div>
-                  <div class="day">Dimanche</div>
+    <head><%- include('../../partials/head'); %> </head>
+    <body class="container">
+        <header><%- include('../../partials/header'); %> </header>
+        <main>
+            <div class="panel" style="width: auto;">
+                <h2>Entrez les plages horaires pour chaque jour de la semaine :</h2>
+                <div class="calendar">
+                    <div class="weekdays">
+                        <div class="day">Lundi</div>
+                        <div class="day">Mardi</div>
+                        <div class="day">Mercredi</div>
+                        <div class="day">Jeudi</div>
+                        <div class="day">Vendredi</div>
+                        <div class="day">Samedi</div>
+                    </div>
+                    <div class="days">
+                        <!-- Lundi -->
+                        <div class="day">
+                            <div class="hour" onclick="hourClick('0/07:15-08:10')">7:15 - 8:10</div>
+                            <div class="hour" onclick="hourClick('0/08:10-09:05')">8:10 - 9:05</div>
+                            <div class="hour" onclick="hourClick('0/09:05-10:00')">9:05 - 10:00</div>
+                            <div class="hour" onclick="hourClick('0/10:15-11:10')">10:15 - 11:10</div>
+                            <div class="hour" onclick="hourClick('0/11:10-12:05')">11:10 - 12:05</div>
+                            <div class="hour" onclick="hourClick('0/12:05-13:00')">12:05 - 13:00</div>
+                            <div class="hour" onclick="hourClick('0/13:00-13:55')">13:00 - 13:55</div>
+                            <div class="hour" onclick="hourClick('0/13:55-14:50')">13:55 - 14:50</div>
+                            <div class="hour" onclick="hourClick('0/15:05-16:00')">15:05 - 16:00</div>
+                            <div class="hour" onclick="hourClick('0/16:00-16:55')">16:00 - 16:55</div>
+                            <div class="hour" onclick="hourClick('0/16:55-17:55')">16:55 - 17:50</div>
+                            <div class="hour" onclick="hourClick('0/18:05-19:00')">18:05 - 19:00</div>
+                        </div>
+                        <!-- Mardi -->
+                        <div class="day">
+                            <div class="hour" onclick="hourClick('1/07:15-08:10')">7:15 - 8:10</div>
+                            <div class="hour" onclick="hourClick('1/08:10-09:05')">8:10 - 9:05</div>
+                            <div class="hour" onclick="hourClick('1/09:05-10:00')">9:05 - 10:00</div>
+                            <div class="hour" onclick="hourClick('1/10:15-11:10')">10:15 - 11:10</div>
+                            <div class="hour" onclick="hourClick('1/11:10-12:05')">11:10 - 12:05</div>
+                            <div class="hour" onclick="hourClick('1/12:05-13:00')">12:05 - 13:00</div>
+                            <div class="hour" onclick="hourClick('1/13:00-13:55')">13:00 - 13:55</div>
+                            <div class="hour" onclick="hourClick('1/13:55-14:50')">13:55 - 14:50</div>
+                            <div class="hour" onclick="hourClick('1/15:05-16:00')">15:05 - 16:00</div>
+                            <div class="hour" onclick="hourClick('1/16:00-16:55')">16:00 - 16:55</div>
+                            <div class="hour" onclick="hourClick('1/16:55-17:55')">16:55 - 17:50</div>
+                            <div class="hour" onclick="hourClick('1/18:05-19:00')">18:05 - 19:00</div>
+                        </div>
+                        <!-- Mercredi -->
+                        <div class="day">
+                            <div class="hour" onclick="hourClick('2/07:15-08:10')">7:15 - 8:10</div>
+                            <div class="hour" onclick="hourClick('2/08:10-09:05')">8:10 - 9:05</div>
+                            <div class="hour" onclick="hourClick('2/09:05-10:00')">9:05 - 10:00</div>
+                            <div class="hour" onclick="hourClick('2/10:15-11:10')">10:15 - 11:10</div>
+                            <div class="hour" onclick="hourClick('2/11:10-12:05')">11:10 - 12:05</div>
+                            <div class="hour" onclick="hourClick('2/12:05-13:00')">12:05 - 13:00</div>
+                            <div class="hour" onclick="hourClick('2/13:00-13:55')">13:00 - 13:55</div>
+                            <div class="hour" onclick="hourClick('2/13:55-14:50')">13:55 - 14:50</div>
+                            <div class="hour" onclick="hourClick('2/15:05-16:00')">15:05 - 16:00</div>
+                            <div class="hour" onclick="hourClick('2/16:00-16:55')">16:00 - 16:55</div>
+                            <div class="hour" onclick="hourClick('2/16:55-17:55')">16:55 - 17:50</div>
+                            <div class="hour" onclick="hourClick('2/18:05-19:00')">18:05 - 19:00</div>
+                        </div>
+                        <!-- Jeudi -->
+                        <div class="day">
+                            <div class="hour" onclick="hourClick('3/07:15-08:10')">7:15 - 8:10</div>
+                            <div class="hour" onclick="hourClick('3/08:10-09:05')">8:10 - 9:05</div>
+                            <div class="hour" onclick="hourClick('3/09:05-10:00')">9:05 - 10:00</div>
+                            <div class="hour" onclick="hourClick('3/10:15-11:10')">10:15 - 11:10</div>
+                            <div class="hour" onclick="hourClick('3/11:10-12:05')">11:10 - 12:05</div>
+                            <div class="hour" onclick="hourClick('3/12:05-13:00')">12:05 - 13:00</div>
+                            <div class="hour" onclick="hourClick('3/13:00-13:55')">13:00 - 13:55</div>
+                            <div class="hour" onclick="hourClick('3/13:55-14:50')">13:55 - 14:50</div>
+                            <div class="hour" onclick="hourClick('3/15:05-16:00')">15:05 - 16:00</div>
+                            <div class="hour" onclick="hourClick('3/16:00-16:55')">16:00 - 16:55</div>
+                            <div class="hour" onclick="hourClick('3/16:55-17:55')">16:55 - 17:50</div>
+                            <div class="hour" onclick="hourClick('3/18:05-19:00')">18:05 - 19:00</div>
+                        </div>
+                        <!-- Vendredi -->
+                        <div class="day">
+                            <div class="hour" onclick="hourClick('4/07:15-08:10')">7:15 - 8:10</div>
+                            <div class="hour" onclick="hourClick('4/08:10-09:05')">8:10 - 9:05</div>
+                            <div class="hour" onclick="hourClick('4/09:05-10:00')">9:05 - 10:00</div>
+                            <div class="hour" onclick="hourClick('4/10:15-11:10')">10:15 - 11:10</div>
+                            <div class="hour" onclick="hourClick('4/11:10-12:05')">11:10 - 12:05</div>
+                            <div class="hour" onclick="hourClick('4/12:05-13:00')">12:05 - 13:00</div>
+                            <div class="hour" onclick="hourClick('4/13:00-13:55')">13:00 - 13:55</div>
+                            <div class="hour" onclick="hourClick('4/13:55-14:50')">13:55 - 14:50</div>
+                            <div class="hour" onclick="hourClick('4/15:05-16:00')">15:05 - 16:00</div>
+                            <div class="hour" onclick="hourClick('4/16:00-16:55')">16:00 - 16:55</div>
+                            <div class="hour" onclick="hourClick('4/16:55-17:55')">16:55 - 17:50</div>
+                            <div class="hour" onclick="hourClick('4/18:05-19:00')">18:05 - 19:00</div>
+                        </div>
+                        <!-- Samedi -->
+                        <div class="day">
+                            <div class="hour" onclick="hourClick('5/07:15-08:10')">7:15 - 8:10</div>
+                            <div class="hour" onclick="hourClick('5/08:10-09:05')">8:10 - 9:05</div>
+                            <div class="hour" onclick="hourClick('5/09:05-10:00')">9:05 - 10:00</div>
+                            <div class="hour" onclick="hourClick('5/10:15-11:10')">10:15 - 11:10</div>
+                            <div class="hour" onclick="hourClick('5/11:10-12:05')">11:10 - 12:05</div>
+                            <div class="hour" onclick="hourClick('5/12:05-13:00')">12:05 - 13:00</div>
+                            <div class="hour" onclick="hourClick('5/13:00-13:55')">13:00 - 13:55</div>
+                            <div class="hour" onclick="hourClick('5/13:55-14:50')">13:55 - 14:50</div>
+                            <div class="hour" onclick="hourClick('5/15:05-16:00')">15:05 - 16:00</div>
+                            <div class="hour" onclick="hourClick('5/16:00-16:55')">16:00 - 16:55</div>
+                            <div class="hour" onclick="hourClick('5/16:55-17:55')">16:55 - 17:50</div>
+                            <div class="hour" onclick="hourClick('5/18:05-19:00')">18:05 - 19:00</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="days">
-                  <!-- Lundi -->
-                  <div class="day">
-                    <div class="hour">7:00 - 8:00</div>
-                    <div class="hour">8:00 - 9:00</div>
-                    <div class="hour">9:00 - 10:00</div>
-                    <div class="hour">10:00 - 11:00</div>
-                    <div class="hour">11:00 - 12:00</div>
-                    <div class="hour">12:00 - 13:00</div>
-                    <div class="hour">13:00 - 14:00</div>
-                    <div class="hour">14:00 - 15:00</div>
-                    <div class="hour">15:00 - 16:00</div>
-                    <div class="hour">16:00 - 17:00</div>
-                    <div class="hour">17:00 - 18:00</div>
-                    <div class="hour">18:00 - 19:00</div>
-                  </div>
-                  <!-- Mardi -->
-                  <div class="day">
-                    <!-- Insérez les tranches horaires ici de la même manière que pour le lundi -->
-                  </div>
-                  <!-- Mercredi -->
-                  <div class="day">
-                    <!-- Insérez les tranches horaires ici de la même manière que pour le lundi -->
-                  </div>
-                  <!-- Jeudi -->
-                  <div class="day">
-                    <!-- Insérez les tranches horaires ici de la même manière que pour le lundi -->
-                  </div>
-                  <!-- Vendredi -->
-                  <div class="day">
-                    <!-- Insérez les tranches horaires ici de la même manière que pour le lundi -->
-                  </div>
-                  <!-- Samedi -->
-                  <div class="day">
-                    <!-- Insérez les tranches horaires ici de la même manière que pour le lundi -->
-                  </div>
-                  <!-- Dimanche -->
-                  <div class="day">
-                    <!-- Insérez les tranches horaires ici de la même manière que pour le lundi -->
-                  </div>
-                </div>
-        </div>
-    </main>
-    <script type="text/javascript">
-        document.getElementById("passbtn").onclick = function() {
-            if (document.getElementById('password').value == document.getElementById('confirmPassword').value) {
-                location.href = "/config?web=" + document.getElementById('password').value;
-            } else {
-                document.getElementById('error').innerText = "Les deux mots de passe ne correspondent pas.";
-            }
-        };
-    </script>
-    <footer>
-        <%- include('../../partials/footer'); %>
-    </footer>
-
-</body>
-
+            </div>
+        </main>
+        <script type="text/javascript">
+            document.getElementById("passbtn").onclick = function() {
+                if (document.getElementById('password').value == document.getElementById('confirmPassword').value) {
+                    location.href = "/config?web=" + document.getElementById('password').value;
+                } else {
+                    document.getElementById('error').innerText = "Les deux mots de passe ne correspondent pas.";
+                }
+            };
+        </script>
+        <footer><%- include('../../partials/footer'); %> </footer>
+    </body>
 </html>
