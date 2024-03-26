@@ -13,7 +13,7 @@
 
     <main>
         <div class="panel">
-            <h1>Configurer le mot de passe pour débloquer les inscriptions des élèves</h1>
+            <h1>Configurer le mot de passe pour accéder à l'espace administrateur</h1>
             <p style="color:red" id="error"></p>
             <input id="password" type="password" placeholder="Mot de passe">
             <br />
@@ -25,7 +25,7 @@
     <script type="text/javascript">
         document.getElementById("passbtn").onclick = function() {
             if (document.getElementById('password').value == document.getElementById('confirmPassword').value) {
-                location.href = "/config?web=" + document.getElementById('password').value;
+                location.href = "/config?admin=" + document.getElementById('password').value;
             } else {
                 document.getElementById('error').innerText = "Les deux mots de passe ne correspondent pas.";
             }

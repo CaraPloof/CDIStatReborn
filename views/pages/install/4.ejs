@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../partials/head'); %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('../../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="panel">
+            <h2>Entrez les plages horaires pour chaque jour de la semaine :</h2>
+            <div class="calendar">
+                <div class="weekdays">
+                  <div class="day">Lundi</div>
+                  <div class="day">Mardi</div>
+                  <div class="day">Mercredi</div>
+                  <div class="day">Jeudi</div>
+                  <div class="day">Vendredi</div>
+                  <div class="day">Samedi</div>
+                  <div class="day">Dimanche</div>
+                </div>
+                <div class="days">
+                  <!-- Lundi -->
+                  <div class="day">
+                    <div class="hour">7:00 - 8:00</div>
+                    <div class="hour">8:00 - 9:00</div>
+                    <div class="hour">9:00 - 10:00</div>
+                    <div class="hour">10:00 - 11:00</div>
+                    <div class="hour">11:00 - 12:00</div>
+                    <div class="hour">12:00 - 13:00</div>
+                    <div class="hour">13:00 - 14:00</div>
+                    <div class="hour">14:00 - 15:00</div>
+                    <div class="hour">15:00 - 16:00</div>
+                    <div class="hour">16:00 - 17:00</div>
+                    <div class="hour">17:00 - 18:00</div>
+                    <div class="hour">18:00 - 19:00</div>
+                  </div>
+                  <!-- Mardi -->
+                  <div class="day">
+                    <!-- Insérez les tranches horaires ici de la même manière que pour le lundi -->
+                  </div>
+                  <!-- Mercredi -->
+                  <div class="day">
+                    <!-- Insérez les tranches horaires ici de la même manière que pour le lundi -->
+                  </div>
+                  <!-- Jeudi -->
+                  <div class="day">
+                    <!-- Insérez les tranches horaires ici de la même manière que pour le lundi -->
+                  </div>
+                  <!-- Vendredi -->
+                  <div class="day">
+                    <!-- Insérez les tranches horaires ici de la même manière que pour le lundi -->
+                  </div>
+                  <!-- Samedi -->
+                  <div class="day">
+                    <!-- Insérez les tranches horaires ici de la même manière que pour le lundi -->
+                  </div>
+                  <!-- Dimanche -->
+                  <div class="day">
+                    <!-- Insérez les tranches horaires ici de la même manière que pour le lundi -->
+                  </div>
+                </div>
+        </div>
+    </main>
+    <script type="text/javascript">
+        document.getElementById("passbtn").onclick = function() {
+            if (document.getElementById('password').value == document.getElementById('confirmPassword').value) {
+                location.href = "/config?web=" + document.getElementById('password').value;
+            } else {
+                document.getElementById('error').innerText = "Les deux mots de passe ne correspondent pas.";
+            }
+        };
+    </script>
+    <footer>
+        <%- include('../../partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>

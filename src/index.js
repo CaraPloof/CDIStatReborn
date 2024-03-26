@@ -118,7 +118,11 @@ app.get('/config', async function(req, res) {
             break;
         case 3: // Configurer le mot de passe pour accéder à l'espace administrateur
             const adminP = req.query.admin;
-            await passwordsTb.addPassword(1, 'admin', hashString(adminP));
+            if (adminP) {
+                await passwordsTb.addPassword(1, 'admin', hashString(adminP));
+                installationStep++;
+            }
+            res.redirect('/install');
             break;
         case 4: // Configurer les horraires du CDI
             const stateTimeSlots = req.query.state; // 0: Modification, 1: Conclusion
@@ -127,6 +131,8 @@ app.get('/config', async function(req, res) {
                     const timeSlots = req.query.timeSlots;
                     break;
                 case 1:
+                    installationStep++;
+                    res.redirect('/install');
                     break;
                 default:
                     break;
