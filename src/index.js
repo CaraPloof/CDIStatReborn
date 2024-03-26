@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.set('view engine', 'ejs');
-(async () => {
+/*(async () => {
     const check = await checksTb.getCheck('students.csv');
     if (await checksTb.getCheck('students.csv') == null || await check.sha256 !== hashFile('students.csv')) {
         fs.createReadStream('students.csv')
@@ -50,7 +50,7 @@ app.set('view engine', 'ejs');
                 console.log(students.length + ' students were discovered.');
             });
     }
-})();
+})();*/
 
 app.get('/', function(req, res) {
     if (!database.databaseExists()) res.redirect('/install');
@@ -84,10 +84,10 @@ app.get('/timeSlots', function(req, res) {
 
 var installationStarted = false;
 var installationToken;
-var installationStep = 0;
+var installationStep = 1;
 
 app.get('/install', function(req, res) {
-    if (database.databaseExists()) { 
+    if (installationStep > 7) { 
         res.redirect('/');
         return;
     }
@@ -96,17 +96,25 @@ app.get('/install', function(req, res) {
 });
 
 app.get('/config', async function(req, res) {
-    if (!installationStarted) return;
-    const token = req.query.token;
-    if (token != installationToken) return;
-    switch (step) { // Etapes de la configuration du logiciel
+    // if (!installationStarted) return;
+    // const token = req.query.token;
+    // if (token != installationToken) return;
+    switch (installationStep) { // Etapes de la configuration du logiciel
         case 1:  // Accepter la license MIT
             const acceptLicense = req.query.acceptLicense;
-            await checksTb.addCheck("LICENSE", sha256(acceptLicense));
+            if (acceptLicense == "true") {
+                await checksTb.addCheck("LICENSE", hashString(acceptLicense));
+                installationStep++;
+            }
+            res.redirect('/install');
             break;
         case 2: // Configurer le mot de passe pour unlock les inscriptions des élèves
             const webP = req.query.web;
-            await passwordsTb.addPassword(1, 'web', hashString(webP));
+            if (webP) {
+                await passwordsTb.addPassword(1, 'web', hashString(webP));
+                installationStep++;
+            }
+            res.redirect('/install');
             break;
         case 3: // Configurer le mot de passe pour accéder à l'espace administrateur
             const adminP = req.query.admin;

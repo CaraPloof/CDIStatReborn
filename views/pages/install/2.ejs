@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../partials/head'); %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('../../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="panel">
+            <h1>Configurer le mot de passe pour unlock les inscriptions des élèves</h1>
+            <input id="password" type="password" placeholder="Mot de passe">
+            <br />
+            <input id="confirmPassword" type="password" placeholder="Confirmer le mot de passe">
+            <br />
+            <button id="passbtn">Enregistrer le mot de passe</button>
+        </div>
+    </main>
+    <script type="text/javascript">
+        document.getElementById("passbtn").onclick = function() {
+            if (document.getElementById('password').value == document.getElementById('confirmPassword').value) {
+                location.href = "/config?web=" + document.getElementById('password').value;
+            } else {
+
+            }
+        };
+    </script>
+    <footer>
+        <%- include('../../partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>
