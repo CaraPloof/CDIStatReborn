@@ -1,7 +1,5 @@
 {
     "port": 8080,
-    "adminPassword": "1B0nM0tD3P4ss",
-    "webPassword": "M0tDeP4sseC0ste3u",
     "room": 60,
     "overbooking": true,
     "overroom": 10,
