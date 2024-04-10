@@ -5,21 +5,21 @@
     <%- include('../../partials/head'); %>
 </head>
 
-<body class="container">
+<body class="h-screen overflow-hidden">
 
-    <header>
+    <header class="bg-white rounded-xl">
         <%- include('../../partials/header'); %>
     </header>
 
     <main>
-        <div class="panel">
+        <div class="panel p-10 md:w-96 bg-white bg-opacity-90 rounded-xl shadow-2xl">
             <h1>Configurer le mot de passe pour accéder à l'espace administrateur</h1>
             <p style="color:red" id="error"></p>
             <input id="password" type="password" placeholder="Mot de passe">
             <br />
             <input id="confirmPassword" type="password" placeholder="Confirmer le mot de passe">
             <br />
-            <button id="passbtn">Enregistrer le mot de passe</button>
+            <button class="w-full bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-700 hover:to-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="passbtn">Enregistrer le mot de passe</button>
         </div>
     </main>
     <script type="text/javascript">

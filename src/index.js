@@ -57,9 +57,10 @@ app.get('/', function(req, res) {
     else res.render('pages/index');
 });
 
-app.get('/register', function(req, res) {
+app.get('/register', async function(req, res) {
     let password = req.query.password;
-    if (password == hashString(webpass)) res.render('pages/register');
+    passCheck = await passwordsTb.getPassword(1, 'web', password);
+    if (passCheck != null) res.render('pages/register');
     else res.redirect('/');
 });
 
@@ -125,17 +126,17 @@ app.get('/config', async function(req, res) {
             res.redirect('/install');
             break;
         case 4: // Configurer les horraires du CDI
-            const stateTimeSlots = req.query.state; // 0: Ajout, 0: Retrait, 1: Conclusion
+            const stateTimeSlots = req.query.state; // 0: Ajout, 1: Retrait, 2: Conclusion
             switch (stateTimeSlots) {
-                case 0:
+                case '0':
                     const timeSlotsA = req.query.timeSlots;
-                    res.send("");
+                    res.send("OK");
                     break;
-                case 1:
+                case '1':
                     const timeSlotsR = req.query.timeSlots;
-                    res.send("");
+                    res.send("OK");
                     break;
-                case 2:
+                case '2':
                     installationStep++;
                     res.redirect('/install');
                     break;
@@ -146,7 +147,7 @@ app.get('/config', async function(req, res) {
         case 5:
             const capacity = req.query.capacity;
             const overbooking = req.query.overbooking;
-            if (overbooking == 1) {
+            if (overbooking == '1') {
                 const overroom = req.query.overroom;
                 
             }
@@ -154,13 +155,13 @@ app.get('/config', async function(req, res) {
         case 6: // Configurer les activités du CDI
             const stateActivities = req.query.state; // 0: Ajout, 1: Retrait, 2: Conclusion
             switch (stateActivities) {
-                case 0:
+                case '0':
                     const toRemove = req.query.element;
                     break;
-                case 1:
+                case '1':
                     const toAdd = req.query.element;
                     break;
-                case 2:
+                case '2':
                     break;
                 default:
                     break;
@@ -168,7 +169,7 @@ app.get('/config', async function(req, res) {
             break;
         case 7: // Configurer la sauvegarde automatique
             const enableBackup = req.query.enable;
-            if (enableBackup == 1) {
+            if (enableBackup == '1') {
                 const folder = req.query.folder;
                 
             }

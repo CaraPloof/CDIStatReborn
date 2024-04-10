@@ -5,14 +5,14 @@
     <%- include('../../partials/head'); %>
 </head>
 
-<body class="container">
+<body class="h-screen overflow-hidden">
 
-    <header>
+    <header class="bg-white rounded-xl">
         <%- include('../../partials/header'); %>
     </header>
 
     <main>
-        <div class="panel">
+        <div class="panel p-10 md:w-96 bg-white bg-opacity-90 rounded-xl shadow-2xl">
             <h1>Accepter la license pour accéder au logiciel</h1>
             <p style="color:black; font-weight: bold;">
                 MIT License<br/>
@@ -38,7 +38,7 @@
                 SOFTWARE.<br/>
             </p>
             <br />
-            <button id="acceptbtn">Accepter la license</button>
+            <button class="w-full bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-700 hover:to-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="acceptbtn">Accepter la license</button>
         </div>
     </main>
     <script type="text/javascript">

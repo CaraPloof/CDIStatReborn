@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head><%- include('../../partials/head'); %> </head>
-    <body class="container">
-        <header><%- include('../../partials/header'); %> </header>
+    <body class="h-screen overflow-hidden">
+        <header class="bg-white rounded-xl">
+            <%- include('../../partials/header'); %>
+        </header>
         <main>
-            <div class="panel" style="width: auto;">
+            <div class="panel p-10 md:w-96 bg-white bg-opacity-90 rounded-xl shadow-2xl" style="width: auto;">
                 <h2>Entrez les plages horaires pour chaque jour de la semaine :</h2>
                 <div class="calendar">
                     <div class="weekdays">
@@ -113,12 +115,19 @@
         <script type="text/javascript">
             function hourClick(slots) {
                 var hour = document.getElementById(slots);
-                if (hour.classList.contains("clicked")) hour.classList.remove("clicked");
-                else hour.classList.add("clicked");
+                if (hour.classList.contains("clicked")) {
+                    fetch("/config?state=1&timeSlots=" + slots)
+                    .catch(error => {console.error('Erreur:', error);});
+                    hour.classList.remove("clicked");
+                } else {
+                    fetch("/config?state=0&timeSlots=" + slots)
+                    .catch(error => {console.error('Erreur:', error);});
+                    hour.classList.add("clicked");
+                }
             }
             document.getElementById("passbtn").onclick = function() {
                 if (document.getElementById('password').value == document.getElementById('confirmPassword').value) {
-                    location.href = "/config?web=" + document.getElementById('password').value;
+                    location.href = "/config?state=2";
                 } else {
                     document.getElementById('error').innerText = "Les deux mots de passe ne correspondent pas.";
                 }

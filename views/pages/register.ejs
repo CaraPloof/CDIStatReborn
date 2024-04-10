@@ -5,15 +5,15 @@
     <%- include('../partials/head'); %>
 </head>
 
-<body class="container">
+<body class="h-screen overflow-hidden">
 
-    <header>
+    <header class="bg-white rounded-xl">
         <%- include('../partials/header'); %>
     </header>
 
     <main>
         <div id="currentTimeSlots"></div>
-        <div class="panel" id="registrationPanel">
+        <div class="panel p-10 md:w-96 bg-white bg-opacity-90 rounded-xl shadow-2xl" id="registrationPanel">
             <input id="name" type="text" placeholder="Your name">
             <div id="suggestions"></div>
             <br />
@@ -27,7 +27,7 @@
                 <option value="other">Autre</option>
             </select>
             <br />
-            <button id="registerbtn" disabled>S'enregistrer</button>
+            <button class="w-full bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-700 hover:to-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="registerbtn" disabled>S'enregistrer</button>
         </div>
     </main>
 
