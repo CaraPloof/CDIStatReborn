@@ -86,6 +86,25 @@ function searchInTable(tableName, query) {
     }
 }
 
+// Fonction pour supprimer une élément dans une table en utilisant son ID
+function deleteElementInTable(tableName, elementId) {
+    const database = loadOrCreateDatabase();
+    if (!database[tableName]) {
+        console.error(`La table '${tableName}' n'existe pas.`);
+        return;
+    }
+
+    // Supprimer l'élément
+    var tb = database[tableName];
+
+    for (let [i, e] of tb.entries()) {
+        if (e.id === elementId) {
+            tb.splice(i, 1);
+        }
+    }
+    saveDatabase(database);
+}
+
 // Fonction pour éditer un élément dans une table en utilisant son ID
 function editElementInTable(tableName, elementId, newData) {
     const database = loadOrCreateDatabase();
@@ -152,6 +171,7 @@ module.exports = {
     searchInTable,
     loadOrCreateDatabase,
     saveDatabase,
+    deleteElementInTable,
     editElementInTable,
     editElementByAttribute,
     databaseExists,

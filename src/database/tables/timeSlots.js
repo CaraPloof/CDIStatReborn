@@ -4,7 +4,7 @@ timeSlotsColumns = ['day', 'from', 'to'];
 database.createTable("timeSlots", timeSlotsColumns);
 
 timeSlotsExample = {
-    day: '1', // Monday
+    day: '0', // Monday
     from: '08:10',
     to: '09:05'
 };
@@ -16,7 +16,7 @@ async function addTimeSlots(day, from, to) {
         to
     };
     try {
-        if (database.searchInTable('students', { day, from, to }).length === 0) {
+        if (database.searchInTable('timeSlots', { day, from, to }).length === 0) {
             database.addToTable("timeSlots", timeSlots);
         }
     } catch (error) {
@@ -25,6 +25,19 @@ async function addTimeSlots(day, from, to) {
     }
 }
 
+async function getTimeSlots(day, from, to) {
+    const students = database.searchInTable('timeSlots', { day, from, to });
+    return students.length > 0 ? students[0] : null;
+}
+
+async function deleteTimeSlots(day, from, to) {
+    const timeSlots = await getTimeSlots(day, from, to);
+    if (!timeSlots) return;
+    database.deleteElementInTable('timeSlots', timeSlots.id);
+}
+
 module.exports = {
-    addTimeSlots
+    addTimeSlots,
+    getTimeSlots,
+    deleteTimeSlots
 };

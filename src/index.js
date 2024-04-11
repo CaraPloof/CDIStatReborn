@@ -21,6 +21,7 @@ const checksTb = require("./database/tables/checks");
 const classesTb = require("./database/tables/classes");
 const studentsTb = require("./database/tables/students");
 const passwordsTb = require("./database/tables/passwords");
+const timeSlotsTb = require("./database/tables/timeSlots");
 
 var students = [];
 var classes = [];
@@ -127,13 +128,22 @@ app.get('/config', async function(req, res) {
             break;
         case 4: // Configurer les horraires du CDI
             const stateTimeSlots = req.query.state; // 0: Ajout, 1: Retrait, 2: Conclusion
+            // Time slot: day/min:sec-min:sec
             switch (stateTimeSlots) {
                 case '0':
                     const timeSlotsA = req.query.timeSlots;
+                    const dayA = timeSlotsA.split('/')[0];
+                    const fromA = timeSlotsA.split('/')[1].split('-')[0];
+                    const toA = timeSlotsA.split('/')[1].split('-')[1];
+                    await timeSlotsTb.addTimeSlots(parseInt(dayA), fromA, toA);
                     res.send("OK");
                     break;
                 case '1':
                     const timeSlotsR = req.query.timeSlots;
+                    const dayR = timeSlotsR.split('/')[0];
+                    const fromR = timeSlotsR.split('/')[1].split('-')[0];
+                    const toR = timeSlotsR.split('/')[1].split('-')[1];
+                    await timeSlotsTb.deleteTimeSlots(parseInt(dayR), fromR, toR);
                     res.send("OK");
                     break;
                 case '2':
