@@ -1,7 +1,7 @@
 const database = require("../database");
 
-const classColumns = ['file', 'sha256'];
-database.createTable('checks', classColumns);
+const checkColumns = ['file', 'sha256'];
+database.createTable('checks', checkColumns);
 
 const checkExample = {
     file: 'test.json',
@@ -16,7 +16,7 @@ async function addCheck(file, sha256) {
     try {
         if (database.searchInTable('checks', {file: file}).length === 0) {
             database.addToTable("checks", check);
-            console.log(`Le check du fichier ${file} a bien été ajoutée.`);
+            console.log(`La vérification du fichier ${file} a bien été ajoutée.`);
         }
     } catch (error) {
         console.error('Erreur lors de la création de la vérification de fichier :', error);
@@ -35,7 +35,7 @@ async function editCheck(file, newSha256) {
         if (existingCheck) {
             const newData = { sha256: newSha256 };
             database.editElementByAttribute("checks", "file", file, newData);
-            console.log(`Le check du fichier ${file} a été mis à jour avec succès.`);
+            console.log(`La vérification du fichier ${file} a été mis à jour avec succès.`);
         } else {
             console.error(`Le fichier ${file} n'existe pas dans la base de données des checks.`);
         }

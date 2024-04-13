@@ -1,7 +1,7 @@
 const database = require("../database");
 
-const classColumns = ['type', 'name', 'pass'];
-database.createTable('passwords', classColumns);
+const passColumns = ['type', 'name', 'pass'];
+database.createTable('passwords', passColumns);
 
 const types = ['admin', 'system'];
 
@@ -20,7 +20,7 @@ async function addPassword(type, name, pass) {
     try {
         if (database.searchInTable('passwords', {name: name}).length === 0) {
             database.addToTable("passwords", password);
-            console.log(`Le mot de passe [${types[type]}] ${name} bien été ajoutée.`);
+            console.log(`Le mot de passe [${types[type]}] ${name} bien été ajouté.`);
         }
     } catch (error) {
         console.error('Erreur lors de la création du mot de passe :', error);

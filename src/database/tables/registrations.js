@@ -1,10 +1,10 @@
 const database = require("../database");
 const students = require("./students");
 
-const registrationsColumns = ['day', 'date', 'time', 'student', 'duration', 'timeSlots'];
-database.createTable('registrations', registrationsColumns);
+const regColumns = ['day', 'date', 'time', 'student', 'duration', 'timeSlots'];
+database.createTable('registrations', regColumns);
 
-const registrationExample = {
+const regExample = {
     day: 1, // Monday
     date: '18/03/2024',
     time: "09:12",
