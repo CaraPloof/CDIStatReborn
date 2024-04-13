@@ -54,8 +54,9 @@ app.set('view engine', 'ejs');
     }
 })();*/
 
-app.get('/', function(req, res) {
-    if (!database.databaseExists()) res.redirect('/install');
+app.get('/', async function(req, res) {
+    const configured = await configsTb.getConfig("configured");
+    if (!configured != 1) res.redirect('/install');
     else res.render('pages/index');
 });
 
@@ -164,6 +165,10 @@ app.get('/config', async function(req, res) {
                 const overroom = req.query.overroom;
                 await configsTb.addConfig("overroom", parseInt(overroom));
             }
+            const longreg = req.query.longreg;
+            await configsTb.addConfig("longreg", longreg);
+            const unreg = req.query.unreg;
+            await configsTb.addConfig("unreg", unreg);
             installationStep++;
             res.redirect('/install');
             break;
