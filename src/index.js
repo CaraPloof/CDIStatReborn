@@ -22,6 +22,7 @@ const classesTb = require("./database/tables/classes");
 const studentsTb = require("./database/tables/students");
 const passwordsTb = require("./database/tables/passwords");
 const timeSlotsTb = require("./database/tables/timeSlots");
+const configsTb = require("./database/tables/configs");
 
 var students = [];
 var classes = [];
@@ -105,7 +106,7 @@ app.get('/config', async function(req, res) {
         case 1:  // Accepter la license MIT
             const acceptLicense = req.query.acceptLicense;
             if (acceptLicense == "true") {
-                await checksTb.addCheck("LICENSE", hashString(acceptLicense));
+                await configsTb.addConfig("LICENSE", acceptLicense);
                 installationStep++;
             }
             res.redirect('/install');
@@ -156,11 +157,15 @@ app.get('/config', async function(req, res) {
             break;
         case 5:
             const capacity = req.query.capacity;
+            await configsTb.addConfig("capacity", parseInt(capacity));
             const overbooking = req.query.overbooking;
-            if (overbooking == '1') {
+            await configsTb.addConfig("overbooking", overbooking);
+            if (overbooking == 'true') {
                 const overroom = req.query.overroom;
-                
+                await configsTb.addConfig("overroom", parseInt(overroom));
             }
+            installationStep++;
+            res.redirect('/install');
             break;
         case 6: // Configurer les activités du CDI
             const stateActivities = req.query.state; // 0: Ajout, 1: Retrait, 2: Conclusion

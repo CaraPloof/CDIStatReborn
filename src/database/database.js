@@ -16,7 +16,7 @@ function saveDatabase(database) {
     try {
         const data = JSON.stringify(database, null, 2);
         fs.writeFileSync('database.json', data, 'utf8');
-        console.log('Base de données sauvegardée avec succès.');
+        // console.log('Base de données sauvegardée avec succès.');
     } catch (err) {
         console.error('Erreur lors de la sauvegarde de la base de données :', err);
     }

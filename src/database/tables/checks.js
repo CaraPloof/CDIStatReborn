@@ -14,7 +14,7 @@ async function addCheck(file, sha256) {
         sha256
     };
     try {
-        if (database.searchInTable('checks', {name: file}).length === 0) {
+        if (database.searchInTable('checks', {file: file}).length === 0) {
             database.addToTable("checks", check);
             console.log(`Le check du fichier ${file} a bien été ajoutée.`);
         }

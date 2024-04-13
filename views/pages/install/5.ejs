@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../partials/head'); %>
+</head>
+
+<body class="h-screen overflow-hidden">
+
+    <header class="bg-white rounded-xl">
+        <%- include('../../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="panel bg-white bg-opacity-90 rounded-xl shadow-2xl">
+            <h1>Configuration du CDI</h1>
+            <form>
+                <label for="cdiPlaces">Nombre de places dans le CDI :</label>
+                <input type="number" id="cdiPlaces" name="cdiPlaces" min="0" value="20"><br><br>
+
+                <label for="acceptOverbooking">Accepter l'overbooking :</label>
+                <input type="checkbox" id="acceptOverbooking" name="acceptOverbooking" value="true"><br><br>
+
+                <div id="overbookingSection" style="display: none;">
+                    <label for="overbookingPlaces">Nombre de places en plus :</label>
+                    <input type="number" id="overbookingPlaces" name="overbookingPlaces" min="0" value="5"><br><br>
+                </div>
+
+                <button type="button" class="w-full bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-700 hover:to-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="savebtn">Sauvegarder</button>
+            </form>
+        </div>
+    </main>
+    <script type="text/javascript">
+        document.getElementById("acceptOverbooking").onclick = function() {
+            var overbookingSection = document.getElementById("overbookingSection");
+            if (this.checked) {
+                overbookingSection.style.display = "block";
+            } else {
+                overbookingSection.style.display = "none";
+            }
+        };
+
+        document.getElementById("savebtn").onclick = function() {
+            var cdiPlaces = document.getElementById("cdiPlaces").value;
+            var acceptOverbooking = document.getElementById("acceptOverbooking").checked;
+            var overbookingPlaces = document.getElementById("overbookingPlaces").value;
+            location.href = "/config?capacity=" + cdiPlaces + "&overbooking=" + acceptOverbooking + "&overroom=" + overbookingPlaces;
+        };
+    </script>
+    <footer>
+        <%- include('../../partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>
